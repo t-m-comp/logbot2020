@@ -1,0 +1,50 @@
+#define LPS22HB_ADDRESS  0x5C
+#define LPS22HB_CTRL_REG1 0x10
+#define LPS22HB_CTRL_REG2 0x11
+#define LPS22HB_FIFO_CTRL 0x14
+#define LPS22HB_FIFO_STATUS 0x26
+
+#define LPS22HB_ONESHOT     0x00
+#define LPS22HB_1HZ     0x10
+#define LPS22HB_10HZ    0x20
+#define LPS22HB_25HZ    0x30
+#define LPS22HB_50HZ    0x40
+#define LPS22HB_75HZ    0x50
+
+#define LPS22HB_LOWNOISE 0x00
+#define LPS22HB_LOWPOWER 0x01
+
+#define LPS22HB_LPF_ENABLE 0x08
+#define LPS22HB_LPF_DISABLE 0x00
+
+#define LPS22HB_LPF_ODR9 0x00         // Filter Cutoff ODR/9
+#define LPS22HB_LPF_ODR20 0x04          // Filter Cutoff ODR/20
+
+#define LPS22HB_FIFO_ENABLE 0x40
+#define LPS22HB_INCREMENT_ADDRESS 0x10
+
+#define LPS22HB_BDU_CONTINUOUS_UPDATE 0x00  // Data updated continuously
+#define LPS22HB_BDU_NO_UPDATE 0x02   // Data updated after a read operation
+
+#define LPS22HB_FIFO_BYPASS_MODE 0x00    // The FIFO is disabled and empty. The pressure is read directly
+#define LPS22HB_FIFO_DYNAMIC_STREAM_MODE 0xC0 // Keep the newest measurements in the FIFO, never read a value twice regardless of how much the FIFO has filled since last read (meant for situations where you can't guarantee that you will read at ODR)
+
+#define LPS22HB_FIFO_FILL_MASK 0x3F
+
+void setup_barometer()
+{
+  uint8_t reg1_arg = LPS22HB_1HZ;
+
+  I2C_write_byte(LPS22HB_ADDRESS, LPS22HB_CTRL_REG1, reg1_arg);
+}
+
+void read_barometer(uint32_t &pressure)
+{
+  uint8_t buf[3]={0};
+  I2Cread(LPS22HB_ADDRESS, 0x28, 3, buf);
+
+  uint32_t b = ((uint32_t)buf[2] << 8) | buf[1];
+  pressure = (b << 8) | buf[0];
+
+  //Serial.println((float)*pressure/4096.0);
+}
