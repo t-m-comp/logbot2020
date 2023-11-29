@@ -20,4 +20,8 @@ As for options, please check by:
 `python build_ino.py -h` 
 
 # How to generate a decision tree
+You can easily generate a decision tree for activity recognition (cpp code) by simply executing the python file as follows. 
 
+`python gentree_ino.py`
+
+Note that please specify the path of training data in the code. 
