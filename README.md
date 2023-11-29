@@ -11,7 +11,7 @@ This is a repository to create Arduino codes for [machine learning enabled bio-l
 - *.cpp: Example decision tree codes.
 
 # How to generate Arduino codes
-You can simply generate codes by:
+You can simply generate codes by:<br>
 `python build_ino.py [options]`
-As for options, please check by 
+As for options, please check by: <br> 
 `python build_ino.py -h` 
