@@ -9,7 +9,8 @@ This is a repository to create Arduino codes for [machine learning enabled bio-l
 - build_ino.py: A python code to generate Arduino codes based on specified settings. As for settings, please check by `python build_ino.py -h`. 
 - default_args.txt: It stores default settings for code generation.
 - *.cpp: Example decision tree codes. You can include a decision tree into Arduino codes by specifying the path of a cpp file when you execute build_ino.py. 
-
+- LogbotTreeBuilding: Codes to build decision trees
+- low_cost_tree: Python library for low cost tree building
 # How to generate Arduino codes
 You can simply generate codes by:
 
@@ -20,8 +21,5 @@ As for options, please check by:
 `python build_ino.py -h` 
 
 # How to generate a decision tree
-You can easily generate a decision tree for activity recognition (cpp code) by simply executing the python file as follows. 
-
-`python gentree_ino.py`
-
+You can easily generate a decision tree for activity recognition (cpp code) by simply executing a python file. Please go to `LogbotTreeBuilding` for more detail.
 Note that please specify the path of training data in the code. 
