@@ -1,0 +1,13 @@
+Notes: setup.py needs to be run in the directory containing the folder "modulename" in order for that folder to be imported, otherwise the files within that folder will each be individually available to import.
+
+..\top_dir\BuildInstructions.txt
+..\top_dir\setup.py
+..\top_dir\low_cost_trees\{all other files including __init__.py}
+
+python setup.py build_ext --inplace
+
+This creates the .pyd files in this directory. If these are not built or are placed elsewhere, then you will get module not found errors when you try to use tree.
+
+Copy the .pyd files to ..\top_dir\low_cost_trees\
+
+python setup.py develop
