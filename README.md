@@ -22,4 +22,4 @@ As for options, please check by:
 
 # How to generate a decision tree
 You can easily generate a decision tree for activity recognition (cpp code) by simply executing a python file. Please go to `LogbotTreeBuilding` for more detail.
-Note that please specify the path of training data in the code. 
+
