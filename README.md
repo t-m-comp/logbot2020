@@ -21,5 +21,5 @@ As for options, please check by:
 `python build_ino.py -h` 
 
 # How to generate a decision tree
-You can easily generate a decision tree for activity recognition (cpp code) by simply executing a python file. Please go to `LogbotTreeBuilding` for more detail.
+You can easily generate a decision tree for activity recognition (cpp code) by simply executing a python file. Please go to `LogbotTreeBuilding` for more detail. Please place a generated decision tree code as cpp file in this folder and specify the file name when you generate Arduino codes.
 
